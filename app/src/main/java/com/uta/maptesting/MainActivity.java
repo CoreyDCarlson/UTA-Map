@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 R.raw.theme
             )
         );
+
+        LatLng UTA = new LatLng(32.731636,-97.111128);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(UTA));
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
     }
 
     @Override
