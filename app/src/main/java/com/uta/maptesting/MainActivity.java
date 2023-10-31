@@ -14,11 +14,6 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback
 {
-//    private ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            intent -> {
-//            });
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap)
     {
@@ -39,6 +34,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        googleMap.setOnMapLoadedCallback
+        {
+            val bounds = LatLngBounds.builder();
+            places.forEach
+            {
+                bounds.include(it.latLng);
+            }
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 20));
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
