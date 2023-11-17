@@ -21,8 +21,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
-public class MainActivity extends FragmentActivity implements OnMapReadyCallback
-{
+public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
     // creating a variable
     // for search view.
     SearchView searchView;
@@ -118,1057 +117,366 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
          */
 
-        LatLng Location0 = new LatLng(32.73138, -97.112969);
+        LatLng building1 = new LatLng(32.734666, -97.114125);
         mMap.addMarker(new MarkerOptions()
-                .position(Location0)
+                .position(building1)
                 .title("Academic Buildings - A - SWCA"));
 
-        LatLng Location1 = new LatLng(32.734707, -97.113682);
+        LatLng building2 = new LatLng(32.734707, -97.113682);
         mMap.addMarker(new MarkerOptions()
-                .position(Location1)
+                .position(building2)
                 .title("Academic Buildings - B - SWCB"));
 
-        LatLng Location2 = new LatLng(32.729576, -97.110579);
+        LatLng building3 = new LatLng(32.727495, -97.107354);
         mMap.addMarker(new MarkerOptions()
-                .position(Location2)
-                .title("Accounting - ACCT"));
-
-        LatLng Location3 = new LatLng(32.736982, -97.109236);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location3)
-                .title("Accounting Services"));
-
-        LatLng Location4 = new LatLng(32.729178, -97.115171);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location4)
-                .title("Admissions"));
-
-        LatLng Location5 = new LatLng(32.729178, -97.115171);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location5)
-                .title("Admissions (Graduate)"));
-
-        LatLng Location6 = new LatLng(32.727495, -97.107354);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location6)
+                .position(building3)
                 .title("Aerodynamics Research Building - ARB"));
 
-        LatLng Location7 = new LatLng(32.73138, -97.112969);
+        LatLng building4 = new LatLng(32.727804, -97.124741);
         mMap.addMarker(new MarkerOptions()
-                .position(Location7)
-                .title("Aerospace Engineering - AE"));
-
-        LatLng Location8 = new LatLng(32.72249, -97.129295);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location8)
-                .title("Allan Saxe Softball Field"));
-
-        LatLng Location9 = new LatLng(32.727804, -97.124741);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location9)
+                .position(building4)
                 .title("Amphibian and Reptile Diversity Research Center - ARC"));
 
-        LatLng Location10 = new LatLng(32.730108, -97.12105);
+        LatLng building5 = new LatLng(32.733351, -97.109269);
         mMap.addMarker(new MarkerOptions()
-                .position(Location10)
-                .title("Arbor Oaks"));
-
-        LatLng Location11 = new LatLng(32.729585, -97.120965);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location11)
-                .title("Arbor Oaks Parking"));
-
-        LatLng Location12 = new LatLng(32.731265, -97.116128);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location12)
-                .title("Architecture Courtyard"));
-
-        LatLng Location13 = new LatLng(32.731096, -97.10941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location13)
-                .title("Arlington Hall"));
-
-        LatLng Location14 = new LatLng(32.730577, -97.115085);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location14)
-                .title("Art and Art History - ART"));
-
-        LatLng Location15 = new LatLng(32.726656, -97.125937);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location15)
-                .title("Asset Management"));
-
-        LatLng Location16 = new LatLng(32.733211, -97.112513);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location16)
-                .title("Bioengineering - BME"));
-
-        LatLng Location17 = new LatLng(32.728641, -97.112895);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location17)
-                .title("Biology - BIOL"));
-
-        LatLng Location18 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location18)
-                .title("Bluebonnet Ballroom"));
-
-        LatLng Location19 = new LatLng(32.733351, -97.109269);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location19)
+                .position(building5)
                 .title("Bookstore - BOOK"));
 
-        LatLng Location20 = new LatLng(32.736982, -97.109236);
+        LatLng building6 = new LatLng(32.729576, -97.110579);
         mMap.addMarker(new MarkerOptions()
-                .position(Location20)
-                .title("Budgets and Financial Planning"));
-
-        LatLng Location21 = new LatLng(32.729576, -97.110579);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location21)
+                .position(building6)
                 .title("Business Building - COBA"));
 
-        LatLng Location22 = new LatLng(32.736982, -97.109236);
+        LatLng building7 = new LatLng(32.729701, -97.127416);
         mMap.addMarker(new MarkerOptions()
-                .position(Location22)
-                .title("Business Services"));
+                .position(building7)
+                .title("C.R. Gilstrap Athletic Center - GILS"));
 
-        LatLng Location23 = new LatLng(32.731265, -97.116128);
+        LatLng building8 = new LatLng(32.731265, -97.116128);
         mMap.addMarker(new MarkerOptions()
-                .position(Location23)
+                .position(building8)
                 .title("CAPPA Building - ARCH"));
 
-        LatLng Location24 = new LatLng(32.7321, -97.116078);
+        LatLng building9 = new LatLng(32.73803198, -97.11480618);
         mMap.addMarker(new MarkerOptions()
-                .position(Location24)
+                .position(building9)
+                .title("CAPPA Community Design Lab - DBI"));
+
+        LatLng building10 = new LatLng(32.7321, -97.116078);
+        mMap.addMarker(new MarkerOptions()
+                .position(building10)
                 .title("CAPPA North - CMPC"));
 
-        LatLng Location25 = new LatLng(32.73065, -97.112586);
+        LatLng building11 = new LatLng(32.73041985, -97.11588374);
         mMap.addMarker(new MarkerOptions()
-                .position(Location25)
+                .position(building11)
+                .title("CAPPA South - A - SHC"));
+
+        LatLng building12 = new LatLng(32.73034154, -97.11553463);
+        mMap.addMarker(new MarkerOptions()
+                .position(building12)
+                .title("CAPPA South - B - SHO"));
+
+        LatLng building13 = new LatLng(32.73034154, -97.11553463);
+        mMap.addMarker(new MarkerOptions()
+                .position(building13)
+                .title("CAPPA South - B - SHO"));
+
+        LatLng building14 = new LatLng(32.73065, -97.112586);
+        mMap.addMarker(new MarkerOptions()
+                .position(building14)
                 .title("Carlisle Hall"));
 
-        LatLng Location26 = new LatLng(32.731544, -97.110941);
+        LatLng building15 = new LatLng(32.73065, -97.112586);
         mMap.addMarker(new MarkerOptions()
-                .position(Location26)
-                .title("Carlisle Suite"));
+                .position(building15)
+                .title("Carlisle Hall - CARH"));
 
-        LatLng Location27 = new LatLng(32.730801, -97.111507);
+        LatLng building16 = new LatLng(32.823796, -96.845489);
         mMap.addMarker(new MarkerOptions()
-                .position(Location27)
-                .title("Carolyn A Barros Reading Room"));
+                .position(building16)
+                .title("Center for Addiction and Recovery Studies - CARS"));
 
-        LatLng Location28 = new LatLng(32.725776, -97.115986);
+        LatLng building17 = new LatLng(32.73359974, -97.10744466);
         mMap.addMarker(new MarkerOptions()
-                .position(Location28)
-                .title("Centennial Court"));
+                .position(building17)
+                .title("Center for Entrepreneurship and Technology Development - CEEI"));
 
-        LatLng Location29 = new LatLng(32.726656, -97.125937);
+        LatLng building18 = new LatLng(32.730396, -97.111744);
         mMap.addMarker(new MarkerOptions()
-                .position(Location29)
-                .title("Central Receiving"));
-
-        LatLng Location30 = new LatLng(32.730396, -97.111744);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location30)
+                .position(building18)
                 .title("Chemistry & Physics Building - CPB"));
 
-        LatLng Location31 = new LatLng(32.730396, -97.111744);
+        LatLng building19 = new LatLng(32.727543, -97.125545);
         mMap.addMarker(new MarkerOptions()
-                .position(Location31)
-                .title("Chemistry & Physics Building - CPB"));
-
-        LatLng Location32 = new LatLng(32.730396, -97.111744);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location32)
-                .title("Chemistry and Biochemistry - CHEM"));
-
-        LatLng Location33 = new LatLng(32.732585, -97.113819);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location33)
-                .title("Civil Engineering - CE"));
-
-        LatLng Location34 = new LatLng(32.727543, -97.125545);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location34)
+                .position(building19)
                 .title("Civil Engineering Lab Building - CELB"));
 
-        LatLng Location35 = new LatLng(32.722201, -97.130803);
+        LatLng building20 = new LatLng(32.730801, -97.111507);
         mMap.addMarker(new MarkerOptions()
-                .position(Location35)
-                .title("Clay Gould Ballpark"));
-
-        LatLng Location36 = new LatLng(32.730801, -97.111507);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location36)
+                .position(building20)
                 .title("College Hall - CH"));
 
-        LatLng Location37 = new LatLng(32.729576, -97.110579);
+        LatLng building21 = new LatLng(32.730187, -97.108181);
         mMap.addMarker(new MarkerOptions()
-                .position(Location37)
-                .title("College of Business- BUSA"));
-
-        LatLng Location38 = new LatLng(32.728415, -97.111283);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location38)
-                .title("College of Nursing and Health Innovation- NURS"));
-
-        LatLng Location39 = new LatLng(32.728641, -97.112895);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location39)
-                .title("College of Science - SCIE"));
-
-        LatLng Location40 = new LatLng(32.730187, -97.108181);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location40)
+                .position(building21)
                 .title("College Park Center - CPC"));
 
-        LatLng Location41 = new LatLng(32.730577, -97.115085);
+        LatLng building22 = new LatLng(32.726832, -97.108455);
         mMap.addMarker(new MarkerOptions()
-                .position(Location41)
-                .title("Communication - COMM"));
-
-        LatLng Location42 = new LatLng(32.733211, -97.112513);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location42)
-                .title("Computer Science and Engineering - CSE"));
-
-        LatLng Location43 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location43)
-                .title("Concho Room"));
-
-        LatLng Location44 = new LatLng(32.726832, -97.108455);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location44)
+                .position(building22)
                 .title("Continuing Ed & Workforce Development - CEWF"));
 
-        LatLng Location45 = new LatLng(32.726832, -97.108455);
+        LatLng building23 = new LatLng(32.726782, -97.107216);
         mMap.addMarker(new MarkerOptions()
-                .position(Location45)
-                .title("Continuing Education"));
-
-        LatLng Location46 = new LatLng(32.729055, -97.114052);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location46)
-                .title("Criminology and Criminal Justice - CRCJ"));
-
-        LatLng Location47 = new LatLng(32.729641, -97.112045);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location47)
-                .title("Curriculum and Instruction - EDUC"));
-
-        LatLng Location48 = new LatLng(32.731223, -97.107478);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location48)
-                .title("Dan Dipert University Welcome Center"));
-
-        LatLng Location49 = new LatLng(32.726782, -97.107216);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location49)
+                .position(building23)
                 .title("DED Technical Training Ctr. - DE"));
 
-        LatLng Location50 = new LatLng(32.732585, -97.113819);
+        LatLng building24 = new LatLng(32.731544, -97.110941);
         mMap.addMarker(new MarkerOptions()
-                .position(Location50)
-                .title("Distance Education"));
-
-        LatLng Location51 = new LatLng(32.730934, -97.11218);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location51)
-                .title("Divsion of Student Success"));
-
-        LatLng Location52 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location52)
+                .position(building24)
                 .title("E.H. Hereford University Center - UC"));
 
-        LatLng Location53 = new LatLng(32.731329, -97.114177);
+        LatLng building25 = new LatLng(32.731329, -97.114177);
         mMap.addMarker(new MarkerOptions()
-                .position(Location53)
+                .position(building25)
                 .title("Earth & Environmental Sciences - EES"));
 
-        LatLng Location54 = new LatLng(32.729576, -97.110579);
+        LatLng building26 = new LatLng(32.732326, -97.11267);
         mMap.addMarker(new MarkerOptions()
-                .position(Location54)
-                .title("Economics - ECON"));
-
-        LatLng Location55 = new LatLng(32.729641, -97.112045);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location55)
-                .title("Educational Leadership and Policy Studies - EDAD"));
-
-        LatLng Location56 = new LatLng(32.734088, -97.106824);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location56)
-                .title("Educational Opportunity Center"));
-
-        LatLng Location57 = new LatLng(32.732585, -97.113819);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location57)
-                .title("Electrical Engineering - EE"));
-
-        LatLng Location58 = new LatLng(32.726656, -97.125937);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location58)
-                .title("Employee Services"));
-
-        LatLng Location59 = new LatLng(32.726656, -97.125937);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location59)
-                .title("Employment Services"));
-
-        LatLng Location60 = new LatLng(32.732326, -97.11267);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location60)
+                .position(building26)
                 .title("Engineering Lab Building - ELAB"));
 
-        LatLng Location61 = new LatLng(32.73217483, -97.11328268);
+        LatLng building27 = new LatLng(32.733211, -97.112513);
         mMap.addMarker(new MarkerOptions()
-                .position(Location61)
-                .title("Engineering Mall"));
-
-        LatLng Location62 = new LatLng(32.733211, -97.112513);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location62)
+                .position(building27)
                 .title("Engineering Research Building - ERB"));
 
-        LatLng Location63 = new LatLng(32.73065, -97.112586);
+        LatLng building28 = new LatLng(32.732313, -97.122161);
         mMap.addMarker(new MarkerOptions()
-                .position(Location63)
-                .title("English - ENGL"));
-
-        LatLng Location64 = new LatLng(32.732313, -97.122161);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location64)
+                .position(building28)
                 .title("Environmental Health & Safety - EH"));
 
-        LatLng Location65 = new LatLng(32.726656, -97.125937);
+        LatLng building29 = new LatLng(32.733159, -97.123303);
         mMap.addMarker(new MarkerOptions()
-                .position(Location65)
-                .title("Facilities Management (Physical Plant)"));
+                .position(building29)
+                .title("Environmental Health & Safety (West) - EHW"));
 
-        LatLng Location66 = new LatLng(32.736982, -97.109236);
+        LatLng building30 = new LatLng(32.736982, -97.109236);
         mMap.addMarker(new MarkerOptions()
-                .position(Location66)
+                .position(building30)
                 .title("Finance and Administration Annex (Watson building) - FAAA"));
 
-        LatLng Location67 = new LatLng(32.729576, -97.110579);
+        LatLng building31 = new LatLng(32.730577, -97.115085);
         mMap.addMarker(new MarkerOptions()
-                .position(Location67)
-                .title("Finance and Real Estate - FINA"));
-
-        LatLng Location68 = new LatLng(32.730577, -97.115085);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location68)
+                .position(building31)
                 .title("Fine Arts Building - FA"));
 
-        LatLng Location69 = new LatLng(32.730577, -97.115085);
+        LatLng building32 = new LatLng(32.749654, -97.324825);
         mMap.addMarker(new MarkerOptions()
-                .position(Location69)
-                .title("Fine Arts Room 148"));
-
-        LatLng Location70 = new LatLng(32.749654, -97.324825);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location70)
+                .position(building32)
                 .title("Fort Worth Center - UTASF"));
 
-        LatLng Location71 = new LatLng(32.734244, -97.114176);
+        LatLng building33 = new LatLng(32.734244, -97.114176);
         mMap.addMarker(new MarkerOptions()
-                .position(Location71)
+                .position(building33)
                 .title("General Academic Classroom Building - GACB"));
 
-        LatLng Location72 = new LatLng(32.729701, -97.127416);
+        LatLng building34 = new LatLng(32.729701, -97.127416);
         mMap.addMarker(new MarkerOptions()
-                .position(Location72)
+                .position(building34)
                 .title("Gilstrap Athletic Center - GILS"));
 
-        LatLng Location73 = new LatLng(32.736982, -97.109236);
+        LatLng building35 = new LatLng(32.729641, -97.112045);
         mMap.addMarker(new MarkerOptions()
-                .position(Location73)
-                .title("Grant and Contracting Accounting"));
-
-        LatLng Location74 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location74)
-                .title("Guadalupe Room"));
-
-        LatLng Location75 = new LatLng(32.729641, -97.112045);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location75)
+                .position(building35)
                 .title("Hammond Hall - HH"));
 
-        LatLng Location76 = new LatLng(32.730456, -97.110756);
+        LatLng building36 = new LatLng(32.730456, -97.110756);
         mMap.addMarker(new MarkerOptions()
-                .position(Location76)
+                .position(building36)
                 .title("Health Center - HLTH"));
 
-        LatLng Location77 = new LatLng(32.729055, -97.114052);
+        LatLng building37 = new LatLng(32.72966, -97.112687);
         mMap.addMarker(new MarkerOptions()
-                .position(Location77)
-                .title("History - HIST"));
-
-        LatLng Location78 = new LatLng(32.730801, -97.111507);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location78)
-                .title("Honors College - HONR"));
-
-        LatLng Location79 = new LatLng(32.73093, -97.117653);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location79)
-                .title("Indoor Pool"));
-
-        LatLng Location80 = new LatLng(32.73138, -97.112969);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location80)
-                .title("Industrial, Manufacturing, and Systems Engineering - IE"));
-
-        LatLng Location81 = new LatLng(32.729576, -97.110579);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location81)
-                .title("Information Systems and Operations Management - INSY"));
-
-        LatLng Location82 = new LatLng(32.733882, -97.121148);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location82)
-                .title("Institutional Compliance"));
-
-        LatLng Location83 = new LatLng(32.733882, -97.121148);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location83)
-                .title("International Education"));
-
-        LatLng Location84 = new LatLng(32.730577, -97.115085);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location84)
-                .title("Irons Recital Hall"));
-
-        LatLng Location85 = new LatLng(32.728357, -97.109528);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location85)
-                .title("Kalpana Chawla Hall"));
-
-        LatLng Location86 = new LatLng(32.731925, -97.11705);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location86)
-                .title("Kinesiology - KINE"));
-
-        LatLng Location87 = new LatLng(32.731265, -97.116128);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location87)
-                .title("Library - Architecture and Fine Arts"));
-
-        LatLng Location88 = new LatLng(32.72966, -97.112687);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location88)
-                .title("Library - Central"));
-
-        LatLng Location89 = new LatLng(32.72966, -97.112687);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location89)
+                .position(building37)
                 .title("Library - LIBR"));
 
-        LatLng Location90 = new LatLng(32.732585, -97.113819);
+        LatLng building38 = new LatLng(32.727747, -97.124157);
         mMap.addMarker(new MarkerOptions()
-                .position(Location90)
-                .title("Library - Science and Engineering"));
-
-        LatLng Location91 = new LatLng(32.72966, -97.112687);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location91)
-                .title("Library Atrium"));
-
-        LatLng Location92 = new LatLng(32.727747, -97.124157);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location92)
+                .position(building38)
                 .title("Library Collection Depository & OIT Office Building - LCDO"));
 
-        LatLng Location93 = new LatLng(32.72966, -97.112687);
+        LatLng building39 = new LatLng(32.728641, -97.112895);
         mMap.addMarker(new MarkerOptions()
-                .position(Location93)
-                .title("Library Parlor"));
-
-        LatLng Location94 = new LatLng(32.728641, -97.112895);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location94)
+                .position(building39)
                 .title("Life Science Building - LS"));
 
-        LatLng Location95 = new LatLng(32.729641, -97.112045);
+        LatLng building40 = new LatLng(32.731925, -97.11705);
         mMap.addMarker(new MarkerOptions()
-                .position(Location95)
-                .title("Linguistics & TESOL - LING"));
-
-        LatLng Location96 = new LatLng(32.731925, -97.11705);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location96)
-                .title("Lone Star Auditorium"));
-
-        LatLng Location97 = new LatLng(32.726656, -97.125937);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location97)
-                .title("Mail Services"));
-
-        LatLng Location98 = new LatLng(32.73121039, -97.11486452);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location98)
-                .title("Mainstage Theatre"));
-
-        LatLng Location99 = new LatLng(32.729576, -97.110579);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location99)
-                .title("Management - MANA"));
-
-        LatLng Location100 = new LatLng(32.729576, -97.110579);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location100)
-                .title("Marketing - MARK"));
-
-        LatLng Location101 = new LatLng(32.729151, -97.115171);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location101)
-                .title("Marketing, Messaging, and Engagement"));
-
-        LatLng Location102 = new LatLng(32.732326, -97.11267);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location102)
-                .title("Materials Science and Engineering - MSE"));
-
-        LatLng Location103 = new LatLng(32.729576, -97.110579);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location103)
-                .title("Mathematical Sciences - MSCI"));
-
-        LatLng Location104 = new LatLng(32.728415, -97.111283);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location104)
-                .title("Mathematics - MATH"));
-
-        LatLng Location105 = new LatLng(32.731925, -97.11705);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location105)
+                .position(building40)
                 .title("Maverick Activities Center - MAC"));
 
-        LatLng Location106 = new LatLng(32.729459, -97.111647);
+        LatLng building41 = new LatLng(32.729459, -97.111647);
         mMap.addMarker(new MarkerOptions()
-                .position(Location106)
+                .position(building41)
                 .title("Maverick Parking Garage - GARA"));
 
-        LatLng Location107 = new LatLng(32.729459, -97.111647);
+        LatLng building42 = new LatLng(32.729209, -97.126382);
         mMap.addMarker(new MarkerOptions()
-                .position(Location107)
-                .title("Maverick Parking Garage - GARA"));
-
-        LatLng Location108 = new LatLng(32.729209, -97.126382);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location108)
+                .position(building42)
                 .title("Maverick Stadium - STAD"));
 
-        LatLng Location109 = new LatLng(32.731083, -97.121437);
+        LatLng building43 = new LatLng(32.733867, -97.122085);
         mMap.addMarker(new MarkerOptions()
-                .position(Location109)
-                .title("Meadow Run"));
-
-        LatLng Location110 = new LatLng(32.73138, -97.112969);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location110)
-                .title("Mechanical and Aerospace Engineering - MAE"));
-
-        LatLng Location111 = new LatLng(32.733867, -97.122085);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location111)
+                .position(building43)
                 .title("Military & Veteran Services - VAC"));
 
-        LatLng Location112 = new LatLng(32.729178, -97.115171);
+        LatLng building44 = new LatLng(32.732407, -97.115512);
         mMap.addMarker(new MarkerOptions()
-                .position(Location112)
-                .title("Military and Veteran Services"));
-
-        LatLng Location113 = new LatLng(32.730801, -97.111507);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location113)
-                .title("Military Science - MILS"));
-
-        LatLng Location114 = new LatLng(32.729641, -97.112045);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location114)
-                .title("Modern Languages - MODL"));
-
-        LatLng Location115 = new LatLng(32.729567, -97.112124);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location115)
-                .title("Motorcycle Parking"));
-
-        LatLng Location116 = new LatLng(32.730577, -97.115085);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location116)
-                .title("Music - MUSI"));
-
-        LatLng Location117 = new LatLng(32.732407, -97.115512);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location117)
+                .position(building44)
                 .title("Nanofab Building - NANO"));
 
-        LatLng Location118 = new LatLng(32.731544, -97.110941);
+        LatLng building45 = new LatLng(32.732585, -97.113819);
         mMap.addMarker(new MarkerOptions()
-                .position(Location118)
-                .title("Neches Room"));
-
-        LatLng Location119 = new LatLng(32.732585, -97.113819);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location119)
+                .position(building45)
                 .title("Nedderman Hall - NH"));
 
-        LatLng Location120 = new LatLng(32.73093, -97.117653);
+        LatLng building46 = new LatLng(32.729425, -97.124411);
         mMap.addMarker(new MarkerOptions()
-                .position(Location120)
-                .title("Outdoor Pool"));
+                .position(building46)
+                .title("Parking & Transportation Services - PATS"));
 
-        LatLng Location121 = new LatLng(32.731544, -97.110941);
+        LatLng building47 = new LatLng(32.729425, -97.124411);
         mMap.addMarker(new MarkerOptions()
-                .position(Location121)
-                .title("Palo Duro Lounge"));
+                .position(building47)
+                .title("Parking at UT Arlington - PATS"));
 
-        LatLng Location122 = new LatLng(32.731544, -97.110941);
+        LatLng building48 = new LatLng(32.73093, -97.117653);
         mMap.addMarker(new MarkerOptions()
-                .position(Location122)
-                .title("Palo Pinto Room"));
-
-        LatLng Location123 = new LatLng(32.729851, -97.124376);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location123)
-                .title("Parking Lot 27"));
-
-        LatLng Location124 = new LatLng(32.73356, -97.12197);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location124)
-                .title("Parking Lot 28"));
-
-        LatLng Location125 = new LatLng(32.72984, -97.12264);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location125)
-                .title("Parking Lot 29"));
-
-        LatLng Location126 = new LatLng(32.73119, -97.11958);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location126)
-                .title("Parking Lot 30"));
-
-        LatLng Location127 = new LatLng(32.73306, -97.12157);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location127)
-                .title("Parking Lot 31"));
-
-        LatLng Location128 = new LatLng(32.73339322, -97.11583614);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location128)
-                .title("Parking Lot 34 (student)"));
-
-        LatLng Location129 = new LatLng(32.73409, -97.11544);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location129)
-                .title("Parking Lot 35"));
-
-        LatLng Location130 = new LatLng(32.7345, -97.11315);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location130)
-                .title("Parking Lot 36"));
-
-        LatLng Location131 = new LatLng(32.732599, -97.109571);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location131)
-                .title("Parking Lot 38"));
-
-        LatLng Location132 = new LatLng(32.732563, -97.10897);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location132)
-                .title("Parking Lot 39"));
-
-        LatLng Location133 = new LatLng(32.727256, -97.108047);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location133)
-                .title("Parking Lot 46"));
-
-        LatLng Location134 = new LatLng(32.72606, -97.11284);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location134)
-                .title("Parking Lot 49"));
-
-        LatLng Location135 = new LatLng(32.7246, -97.11238);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location135)
-                .title("Parking Lot 50"));
-
-        LatLng Location136 = new LatLng(32.72322, -97.11049);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location136)
-                .title("Parking Lot 51"));
-
-        LatLng Location137 = new LatLng(32.72571, -97.11049);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location137)
-                .title("Parking Lot 52"));
-
-        LatLng Location138 = new LatLng(32.72696, -97.10913);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location138)
-                .title("Parking Lot 53"));
-
-        LatLng Location139 = new LatLng(32.72799, -97.10735);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location139)
-                .title("Parking Lot 55"));
-
-        LatLng Location140 = new LatLng(32.72503, -97.10828);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location140)
-                .title("Parking Lot 56"));
-
-        LatLng Location141 = new LatLng(32.728772, -97.110418);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location141)
-                .title("Parking Lot F10"));
-
-        LatLng Location142 = new LatLng(32.73269829, -97.11038053);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location142)
-                .title("Parking Lot F11"));
-
-        LatLng Location143 = new LatLng(32.733, -97.11148);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location143)
-                .title("Parking Lot F12"));
-
-        LatLng Location144 = new LatLng(32.729914, -97.10919);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location144)
-                .title("Parking Lot F13"));
-
-        LatLng Location145 = new LatLng(32.733326, -97.11412);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location145)
-                .title("Parking Lot F14"));
-
-        LatLng Location146 = new LatLng(32.72627, -97.10822);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location146)
-                .title("Parking Lot F17"));
-
-        LatLng Location147 = new LatLng(32.73247, -97.12188);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location147)
-                .title("Parking Lot F4"));
-
-        LatLng Location148 = new LatLng(32.73399, -97.12035);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location148)
-                .title("Parking Lot F5"));
-
-        LatLng Location149 = new LatLng(32.73214, -97.11499);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location149)
-                .title("Parking Lot F7"));
-
-        LatLng Location150 = new LatLng(32.73106, -97.11682);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location150)
-                .title("Parking Lot F8"));
-
-        LatLng Location151 = new LatLng(32.72874, -97.11568);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location151)
-                .title("Parking Lot F9"));
-
-        LatLng Location152 = new LatLng(32.73147, -97.12251);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location152)
-                .title("Parking Lot GR"));
-
-        LatLng Location153 = new LatLng(32.726656, -97.125937);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location153)
-                .title("Payroll Services"));
-
-        LatLng Location154 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location154)
-                .title("Pedernales Room"));
-
-        LatLng Location155 = new LatLng(32.730801, -97.111507);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location155)
-                .title("Philosophy and Humanities - PHIL"));
-
-        LatLng Location156 = new LatLng(32.73093, -97.117653);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location156)
+                .position(building48)
                 .title("Physical Education - PE"));
 
-        LatLng Location157 = new LatLng(32.726656, -97.125937);
+        LatLng building49 = new LatLng(32.728415, -97.111283);
         mMap.addMarker(new MarkerOptions()
-                .position(Location157)
-                .title("Physical Plant (Facilities Management)"));
-
-        LatLng Location158 = new LatLng(32.730396, -97.111744);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location158)
-                .title("Physics - PHYS"));
-
-        LatLng Location159 = new LatLng(32.728415, -97.111283);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location159)
+                .position(building49)
                 .title("Pickard Hall - PKH"));
 
-        LatLng Location160 = new LatLng(32.730396, -97.111744);
+        LatLng building50 = new LatLng(32.730905, -97.112856);
         mMap.addMarker(new MarkerOptions()
-                .position(Location160)
-                .title("Planetarium"));
-
-        LatLng Location161 = new LatLng(32.729055, -97.114052);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location161)
-                .title("Political Science - POLS"));
-
-        LatLng Location162 = new LatLng(32.730905, -97.112856);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location162)
+                .position(building50)
                 .title("Preston Hall - PH"));
 
-        LatLng Location163 = new LatLng(32.736982, -97.109236);
+        LatLng building51 = new LatLng(32.730934, -97.11218);
         mMap.addMarker(new MarkerOptions()
-                .position(Location163)
-                .title("Procurement Services"));
-
-        LatLng Location164 = new LatLng(32.728641, -97.112895);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location164)
-                .title("Psychology - PSYC"));
-
-        LatLng Location165 = new LatLng(32.732585, -97.113819);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location165)
-                .title("Rady Room"));
-
-        LatLng Location166 = new LatLng(32.730934, -97.11218);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location166)
+                .position(building51)
                 .title("Ransom Hall - RH"));
 
-        LatLng Location167 = new LatLng(32.729178, -97.115171);
+        LatLng building52 = new LatLng(32.72764243, -97.11166903);
         mMap.addMarker(new MarkerOptions()
-                .position(Location167)
-                .title("Records and Registration (Registrar)"));
+                .position(building52)
+                .title("School of Social Work and College of Nursing and Health Innovation Smart Hospital Building - SWSH"));
 
-        LatLng Location168 = new LatLng(32.731544, -97.110941);
+        LatLng building53 = new LatLng(32.728122, -97.112746);
         mMap.addMarker(new MarkerOptions()
-                .position(Location168)
-                .title("Red River Room"));
+                .position(building53)
+                .title("Science & Engineering Innovation & Research Building - SEIR"));
 
-        LatLng Location169 = new LatLng(32.72920179, -97.11520236);
+        LatLng building54 = new LatLng(32.730438, -97.114186);
         mMap.addMarker(new MarkerOptions()
-                .position(Location169)
-                .title("Research Administration"));
-
-        LatLng Location170 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location170)
-                .title("Rio Grande Ballroom"));
-
-        LatLng Location171 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location171)
-                .title("Rosebud Theater"));
-
-        LatLng Location172 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location172)
-                .title("San Jacinto Room"));
-
-        LatLng Location173 = new LatLng(32.731544, -97.110941);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location173)
-                .title("San Saba Room"));
-
-        LatLng Location174 = new LatLng(32.72752087, -97.11141429);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location174)
-                .title("School of Social Work - SOCW"));
-
-        LatLng Location175 = new LatLng(32.732585, -97.113819);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location175)
-                .title("Science and Engineering Library"));
-
-        LatLng Location176 = new LatLng(32.730438, -97.114186);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location176)
+                .position(building54)
                 .title("Science Hall - SH"));
 
-        LatLng Location177 = new LatLng(32.731544, -97.110941);
+        LatLng building55 = new LatLng(32.728687, -97.124942);
         mMap.addMarker(new MarkerOptions()
-                .position(Location177)
-                .title("Sierras Lounge"));
-
-        LatLng Location178 = new LatLng(32.729055, -97.114052);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location178)
-                .title("Sociology and Anthropology - ANTH"));
-
-        LatLng Location179 = new LatLng(32.72966, -97.112687);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location179)
-                .title("Special Collections"));
-
-        LatLng Location180 = new LatLng(32.729055, -97.114052);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location180)
-                .title("Student Access & Resource Center"));
-
-        LatLng Location181 = new LatLng(32.729219, -97.115171);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location181)
-                .title("Student Accounts"));
-
-        LatLng Location182 = new LatLng(32.728687, -97.124942);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location182)
+                .position(building55)
                 .title("Studio Arts Center - SAC"));
 
-        LatLng Location183 = new LatLng(32.730577, -97.115085);
+        LatLng building56 = new LatLng(32.733882, -97.121148);
         mMap.addMarker(new MarkerOptions()
-                .position(Location183)
-                .title("Studio Theatre"));
-
-        LatLng Location184 = new LatLng(32.733882, -97.121148);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location184)
+                .position(building56)
                 .title("Swift Center - SC"));
 
-        LatLng Location185 = new LatLng(32.726656, -97.125937);
+        LatLng building57 = new LatLng(32.732003, -97.119913);
         mMap.addMarker(new MarkerOptions()
-                .position(Location185)
-                .title("Talent, Culture and Engagement"));
-
-        LatLng Location186 = new LatLng(32.732003, -97.119913);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location186)
+                .position(building57)
                 .title("Tennis Center - TENN"));
 
-        LatLng Location187 = new LatLng(32.729723, -97.115497);
+        LatLng building58 = new LatLng(32.729723, -97.115497);
         mMap.addMarker(new MarkerOptions()
-                .position(Location187)
-                .title("Texas Hall"));
-
-        LatLng Location188 = new LatLng(32.729723, -97.115497);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location188)
+                .position(building58)
                 .title("Texas Hall - TEX"));
 
-        LatLng Location189 = new LatLng(32.731544, -97.110941);
+        LatLng building59 = new LatLng(32.733095, -97.117113);
         mMap.addMarker(new MarkerOptions()
-                .position(Location189)
-                .title("The Gallery at UC"));
+                .position(building59)
+                .title("The Commons - COM"));
 
-        LatLng Location190 = new LatLng(32.731457, -97.115053);
+        LatLng building60 = new LatLng(32.73051, -97.110214);
         mMap.addMarker(new MarkerOptions()
-                .position(Location190)
-                .title("The Gallery at UTA"));
+                .position(building60)
+                .title("Thermal Energy Plant - TEP"));
 
-        LatLng Location191 = new LatLng(32.729404, -97.107291);
+        LatLng building61 = new LatLng(32.734048, -97.123047);
         mMap.addMarker(new MarkerOptions()
-                .position(Location191)
-                .title("The Green at College Park"));
+                .position(building61)
+                .title("Transforming Lives Child Development Center - DAYC"));
 
-        LatLng Location192 = new LatLng(32.73121039, -97.11486452);
+        LatLng building62 = new LatLng(32.729887, -97.111534);
         mMap.addMarker(new MarkerOptions()
-                .position(Location192)
-                .title("Theatre Arts and Dance - THEA"));
-
-        LatLng Location193 = new LatLng(32.733863, -97.119913);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location193)
-                .title("Timber Brook"));
-
-        LatLng Location194 = new LatLng(32.736982, -97.109236);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location194)
-                .title("Travel Services"));
-
-        LatLng Location195 = new LatLng(32.729887, -97.111534);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location195)
+                .position(building62)
                 .title("Trimble Hall - TH"));
 
-        LatLng Location196 = new LatLng(32.73018927, -97.11674809);
+        LatLng building63 = new LatLng(32.729178, -97.115171);
         mMap.addMarker(new MarkerOptions()
-                .position(Location196)
-                .title("Trinity Hall - TRN"));
-
-        LatLng Location197 = new LatLng(32.729178, -97.115171);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location197)
+                .position(building63)
                 .title("University Administration Building - UA"));
 
-        LatLng Location198 = new LatLng(32.731544, -97.110941);
+        LatLng building64 = new LatLng(32.729055, -97.114052);
         mMap.addMarker(new MarkerOptions()
-                .position(Location198)
-                .title("University Center Mall"));
-
-        LatLng Location199 = new LatLng(32.729055, -97.114052);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location199)
+                .position(building64)
                 .title("University Hall - UH"));
 
-        LatLng Location200 = new LatLng(32.73326, -97.105225);
+        LatLng building65 = new LatLng(32.73326, -97.105225);
         mMap.addMarker(new MarkerOptions()
-                .position(Location200)
+                .position(building65)
                 .title("University Police Department - UPD"));
 
-        LatLng Location201 = new LatLng(32.730198, -97.119741);
+        LatLng building66 = new LatLng(32.784965, -97.219874);
         mMap.addMarker(new MarkerOptions()
-                .position(Location201)
-                .title("University Village"));
-
-        LatLng Location202 = new LatLng(32.784965, -97.219874);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location202)
+                .position(building66)
                 .title("UT Arlington Research Institute - UTARI"));
 
-        LatLng Location203 = new LatLng(32.73038, -97.112816);
+        LatLng building67 = new LatLng(32.73038, -97.112816);
         mMap.addMarker(new MarkerOptions()
-                .position(Location203)
+                .position(building67)
                 .title("W. A. Baker Chemistry Research Building - CRB"));
 
-        LatLng Location204 = new LatLng(32.734088, -97.106824);
+        LatLng building68 = new LatLng(32.734088, -97.106824);
         mMap.addMarker(new MarkerOptions()
-                .position(Location204)
+                .position(building68)
                 .title("Wade Building - WDB"));
 
-        LatLng Location205 = new LatLng(32.731265, -97.116128);
+        LatLng building69 = new LatLng(32.733092, -97.118528);
         mMap.addMarker(new MarkerOptions()
-                .position(Location205)
-                .title("West Campus Library"));
+                .position(building69)
+                .title("West Hall -"));
 
-        LatLng Location206 = new LatLng(32.726268, -97.117751);
+        LatLng building70 = new LatLng(32.726268, -97.117751);
         mMap.addMarker(new MarkerOptions()
-                .position(Location206)
+                .position(building70)
                 .title("West Mitchell Center - SAB"));
 
-        LatLng Location207 = new LatLng(32.726656, -97.125937);
+        LatLng building71 = new LatLng(32.726656, -97.125937);
         mMap.addMarker(new MarkerOptions()
-                .position(Location207)
+                .position(building71)
                 .title("Wetsel Service Center - WET"));
 
-        LatLng Location208 = new LatLng(32.729055, -97.114052);
+        LatLng building72 = new LatLng(32.73138, -97.112969);
         mMap.addMarker(new MarkerOptions()
-                .position(Location208)
-                .title("Women's and Gender Studies - WOMS"));
-
-        LatLng Location209 = new LatLng(32.73138, -97.112969);
-        mMap.addMarker(new MarkerOptions()
-                .position(Location209)
+                .position(building72)
                 .title("Woolf Hall - WH"));
 
+
     }
-
-
 }
