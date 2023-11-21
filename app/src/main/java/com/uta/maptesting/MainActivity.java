@@ -3,34 +3,36 @@ package com.uta.maptesting;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentActivity;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
     // creating a variable
     // for search view.
     SearchView searchView;
     private GoogleMap mMap;
+    //private Marker marker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
 
         // initializing our search view.
         searchView = findViewById(R.id.idSearchView);
@@ -82,6 +84,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             public boolean onQueryTextChange(String newText) {
                 return false;
             }
+
+
         });
         // at last we calling our map fragment to update.
         Objects.requireNonNull(mapFragment).getMapAsync(this);
@@ -105,17 +109,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng UTA = new LatLng(32.731636, -97.111128);
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(UTA));
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
-
-        /*
-
-        LatLngBounds UTAbounds = new LatLngBounds(
-                new LatLng(32.721262, -97.131970), // SW bounds
-                new LatLng(32.735551, -97.107085)  // NE bounds
-        );
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UTA, 15));
-        googleMap.setLatLngBoundsForCameraTarget(UTAbounds);
-
-         */
 
         LatLng building1 = new LatLng(32.734666, -97.114125);
         mMap.addMarker(new MarkerOptions()
@@ -145,7 +138,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building6 = new LatLng(32.729576, -97.110579);
         mMap.addMarker(new MarkerOptions()
                 .position(building6)
-                .title("Business Building - COBA"));
+                .title("Business Building - COBA")
+                .snippet("Accounting - ACCT\nCollege of Business - BUSA/BCOL\nEconomics - ECON\nFinance and Real Estate - FINA\nInformation Systems and Operations Management - INSY\nManagement - MANA\nMarketing - MARK\nMathematical Sciences - MSCI"));
+
 
         LatLng building7 = new LatLng(32.729701, -97.127416);
         mMap.addMarker(new MarkerOptions()
@@ -155,7 +150,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building8 = new LatLng(32.731265, -97.116128);
         mMap.addMarker(new MarkerOptions()
                 .position(building8)
-                .title("CAPPA Building - ARCH"));
+                .title("CAPPA Building - ARCH")
+                .snippet("College of Architecture, Planning and Public Affairs - CAPPA\nLibrary - Architecture and Fine Arts\nArchitecture Courtyard\nWest Campus Library"));
+
 
         LatLng building9 = new LatLng(32.73803198, -97.11480618);
         mMap.addMarker(new MarkerOptions()
@@ -190,7 +187,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building15 = new LatLng(32.73065, -97.112586);
         mMap.addMarker(new MarkerOptions()
                 .position(building15)
-                .title("Carlisle Hall - CARH"));
+                .title("Carlisle Hall - CARH")
+                .snippet("English - ENGL"));
+
 
         LatLng building16 = new LatLng(32.823796, -96.845489);
         mMap.addMarker(new MarkerOptions()
@@ -205,7 +204,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building18 = new LatLng(32.730396, -97.111744);
         mMap.addMarker(new MarkerOptions()
                 .position(building18)
-                .title("Chemistry & Physics Building - CPB"));
+                .title("Chemistry & Physics Building - CPB")
+                .snippet("Chemistry and Biochemistry - CHEM\nPhysics - PHYS\nPlanetarium"));
+
 
         LatLng building19 = new LatLng(32.727543, -97.125545);
         mMap.addMarker(new MarkerOptions()
@@ -215,7 +216,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building20 = new LatLng(32.730801, -97.111507);
         mMap.addMarker(new MarkerOptions()
                 .position(building20)
-                .title("College Hall - CH"));
+                .title("College Hall - CH")
+                .snippet("Honors College - HCOL/HONR\nMilitary Science - MILS\nPhilosophy and Humanities - PHIL\nCarolyn A Barros Reading Room"));
+
 
         LatLng building21 = new LatLng(32.730187, -97.108181);
         mMap.addMarker(new MarkerOptions()
@@ -235,7 +238,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building24 = new LatLng(32.731544, -97.110941);
         mMap.addMarker(new MarkerOptions()
                 .position(building24)
-                .title("E.H. Hereford University Center - UC"));
+                .title("E.H. Hereford University Center - UC")
+                .snippet("Bluebonnet Ballroom\nCarlisle Suite\nConcho Room\nGuadalupe Room\nNeches Room\nPalo Duro Lounge\nPalo Pinto Room\nPedernales Room\nRed River Room\nRio Grande Ballroom\nRosebud Theater\nSan Jacinto Room\nSan Saba Room\nSierras Lounge\nThe Gallery at UC\nUniversity Center Mall"));
+
 
         LatLng building25 = new LatLng(32.731329, -97.114177);
         mMap.addMarker(new MarkerOptions()
@@ -250,7 +255,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building27 = new LatLng(32.733211, -97.112513);
         mMap.addMarker(new MarkerOptions()
                 .position(building27)
-                .title("Engineering Research Building - ERB"));
+                .title("Engineering Research Building - ERB")
+                .snippet("Bioengineering - BME\nComputer Science and Engineering - CSE"));
+
 
         LatLng building28 = new LatLng(32.732313, -97.122161);
         mMap.addMarker(new MarkerOptions()
@@ -265,12 +272,16 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building30 = new LatLng(32.736982, -97.109236);
         mMap.addMarker(new MarkerOptions()
                 .position(building30)
-                .title("Finance and Administration Annex (Watson building) - FAAA"));
+                .title("Finance and Administration Annex (Watson building) - FAAA")
+                .snippet("Accounting Services\nBudgets and Financial Planning\nBusiness Services\nGrant and Contracting Accounting\nProcurement Services\nTravel Services"));
+
 
         LatLng building31 = new LatLng(32.730577, -97.115085);
         mMap.addMarker(new MarkerOptions()
                 .position(building31)
-                .title("Fine Arts Building - FA"));
+                .title("Fine Arts Building - FA")
+                .snippet("Art and Art History - ART\nCommunication - COMM\nMusic - MUSI\nFine Arts Room 148\nIrons Recital Hall\nStudio Theatre"));
+
 
         LatLng building32 = new LatLng(32.749654, -97.324825);
         mMap.addMarker(new MarkerOptions()
@@ -290,7 +301,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building35 = new LatLng(32.729641, -97.112045);
         mMap.addMarker(new MarkerOptions()
                 .position(building35)
-                .title("Hammond Hall - HH"));
+                .title("Hammond Hall - HH")
+                .snippet("College of Education - COED\nCurriculum and Instruction - EDUC\nEducational Leadership and Policy Studies - EDAD\nLinguistics & TESOL - LING\nModern Languages - MODL"));
+
 
         LatLng building36 = new LatLng(32.730456, -97.110756);
         mMap.addMarker(new MarkerOptions()
@@ -300,7 +313,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building37 = new LatLng(32.72966, -97.112687);
         mMap.addMarker(new MarkerOptions()
                 .position(building37)
-                .title("Library - LIBR"));
+                .title("Library - LIBR")
+                .snippet("Academic Support Programs\nLibrary - Central\nLibrary Atrium\nLibrary Parlor\nSpecial Collections"));
+
 
         LatLng building38 = new LatLng(32.727747, -97.124157);
         mMap.addMarker(new MarkerOptions()
@@ -315,7 +330,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building40 = new LatLng(32.731925, -97.11705);
         mMap.addMarker(new MarkerOptions()
                 .position(building40)
-                .title("Maverick Activities Center - MAC"));
+                .title("Maverick Activities Center - MAC")
+                .snippet("Kinesiology - KINE\nLone Star Auditorium"));
+
 
         LatLng building41 = new LatLng(32.729459, -97.111647);
         mMap.addMarker(new MarkerOptions()
@@ -340,7 +357,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building45 = new LatLng(32.732585, -97.113819);
         mMap.addMarker(new MarkerOptions()
                 .position(building45)
-                .title("Nedderman Hall - NH"));
+                .title("Nedderman Hall - NH")
+                .snippet("Civil Engineering - CE\nCollege of Engineering - COE\nElectrical Engineering - EE\nDistance Education\nLibrary - Science and Engineering\nRady Room\nScience and Engineering Library"));
+
 
         LatLng building46 = new LatLng(32.729425, -97.124411);
         mMap.addMarker(new MarkerOptions()
@@ -355,7 +374,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building48 = new LatLng(32.73093, -97.117653);
         mMap.addMarker(new MarkerOptions()
                 .position(building48)
-                .title("Physical Education - PE"));
+                .title("Physical Education - PE")
+                .snippet("Indoor Pool\nOutdoor Pool"));
+
 
         LatLng building49 = new LatLng(32.728415, -97.111283);
         mMap.addMarker(new MarkerOptions()
@@ -370,7 +391,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building51 = new LatLng(32.730934, -97.11218);
         mMap.addMarker(new MarkerOptions()
                 .position(building51)
-                .title("Ransom Hall - RH"));
+                .title("Ransom Hall - RH")
+                .snippet("University Studies\nAcademic Coaching\nDivision of Student Success\nTerry Scholars Foundation\nTRiO Support Services\nTheatre Arts and Dance - THEA\nMainstage Theatre"));
+
 
         LatLng building52 = new LatLng(32.72764243, -97.11166903);
         mMap.addMarker(new MarkerOptions()
@@ -395,7 +418,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building56 = new LatLng(32.733882, -97.121148);
         mMap.addMarker(new MarkerOptions()
                 .position(building56)
-                .title("Swift Center - SC"));
+                .title("Swift Center - SC")
+                .snippet("Institutional Compliance\nInternational Education"));
+
 
         LatLng building57 = new LatLng(32.732003, -97.119913);
         mMap.addMarker(new MarkerOptions()
@@ -425,17 +450,23 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building62 = new LatLng(32.729887, -97.111534);
         mMap.addMarker(new MarkerOptions()
                 .position(building62)
-                .title("Trimble Hall - TH"));
+                .title("Trimble Hall - TH")
+                .snippet("Modern Languages Computer Lab"));
+
 
         LatLng building63 = new LatLng(32.729178, -97.115171);
         mMap.addMarker(new MarkerOptions()
                 .position(building63)
-                .title("University Administration Building - UA"));
+                .title("University Administration Building - UA")
+                .snippet("Graduate School - GRADS\nAdmissions\nAdmissions (Graduate)\nMilitary and Veteran Services\nRecords and Registration (Registrar)\n"));
+
 
         LatLng building64 = new LatLng(32.729055, -97.114052);
         mMap.addMarker(new MarkerOptions()
                 .position(building64)
-                .title("University Hall - UH"));
+                .title("University Hall - UH")
+                .snippet("College of Liberal Arts - LIBA\nCriminology and Criminal Justice - CRCJ\nCriminology and Criminal Justice - CRJ\nHistory - HIST\nPolitical Science - POLS\nSociology and Anthropology - ANTH\nWomen's and Gender Studies - WOMS\nAcademic Testing and TSI Services\nStudent Access & Resource Center\n"));
+
 
         LatLng building65 = new LatLng(32.73326, -97.105225);
         mMap.addMarker(new MarkerOptions()
@@ -455,7 +486,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building68 = new LatLng(32.734088, -97.106824);
         mMap.addMarker(new MarkerOptions()
                 .position(building68)
-                .title("Wade Building - WDB"));
+                .title("Wade Building - WDB")
+                .snippet("Educational Opportunity Center"));
+
 
         LatLng building69 = new LatLng(32.733092, -97.118528);
         mMap.addMarker(new MarkerOptions()
@@ -475,7 +508,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng building72 = new LatLng(32.73138, -97.112969);
         mMap.addMarker(new MarkerOptions()
                 .position(building72)
-                .title("Woolf Hall - WH"));
+                .title("Woolf Hall - WH")
+                .snippet("Aerospace Engineering - AE\nIndustrial, Manufacturing, and Systems Engineering - IE\nMechanical and Aerospace Engineering - MAE"));
+
 
         LatLng parking1 = new LatLng(32.73323979, -97.11843252);
         mMap.addMarker(new MarkerOptions()
@@ -877,6 +912,44 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 .position(venue42)
                 .title("West Campus Library"));
 
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            boolean isCustomInfoWindowOpen = false;
 
-    }
-}
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker) {
+                if (!isCustomInfoWindowOpen) {
+                    mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                        @Override
+                        public View getInfoWindow(@NonNull Marker marker) {
+                            return null; // Return null to use the default info window
+                        }
+
+                        @Override
+                        public View getInfoContents(@NonNull Marker marker) {
+                            // Inflate the custom layout for the info window
+                            View v = LayoutInflater.from(getApplicationContext()).inflate(R.layout.custom_info_window, null);
+
+                            // Get references to your views in the custom layout
+                            TextView infoTitle = v.findViewById(R.id.info_title);
+                            TextView infoSnippet = v.findViewById(R.id.info_snippet);
+
+                            // Set marker title and snippet in the custom info window
+                            infoTitle.setText(marker.getTitle());
+                            infoSnippet.setText(marker.getSnippet());
+
+                            // Return the custom info window layout
+                            return v;
+                        }
+                    });
+
+                    marker.showInfoWindow(); // Open the custom info window
+                    isCustomInfoWindowOpen = true;
+                } else {
+                    marker.hideInfoWindow(); // Close the info window
+                    mMap.setInfoWindowAdapter(null); // Revert to default info window
+                    isCustomInfoWindowOpen = false;
+                }
+                return true;
+            }
+        });
+}}
