@@ -1,5 +1,7 @@
 package com.uta.maptesting;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
@@ -8,11 +10,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import android.view.LayoutInflater;
@@ -25,206 +28,73 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     SearchView searchView;
     private GoogleMap mMap;
     //private Marker marker;
-    private List<CustomLocation> customLocations;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+
+        // initializing our search view.
         searchView = findViewById(R.id.idSearchView);
+
+        // Obtain the SupportMapFragment and get notified
+        // when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         Objects.requireNonNull(mapFragment).getMapAsync(this);
-        initializeCustomLocations();
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
-        {
+        // adding on query listener for our search view.
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query)
-            {
-                for (CustomLocation location : customLocations)
-                {
-                    if (location.getName().toLowerCase().contains(query.toLowerCase()))
-                    {
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location.getLatLng(), 17));
-                        break;
-                    }
+            public boolean onQueryTextSubmit(String query) {
+                // on below line we are getting the
+                // location name from search view.
+                String location = searchView.getQuery().toString();
+
+                // below line is to create a list of address
+                // where we will store the list of all address.
+                List<Address> addressList = null;
+
+                // checking if the entered location is null or not.
+                // on below line we are creating and initializing a geo coder.
+                Geocoder geocoder = new Geocoder(MainActivity.this);
+                try {
+                    // on below line we are getting location from the
+                    // location name and adding that location to address list.
+                    addressList = geocoder.getFromLocationName(location, 1);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+                // on below line we are getting the location
+                // from our list a first position.
+                Address address = Objects.requireNonNull(addressList).get(0);
+
+                // on below line we are creating a variable for our location
+                // where we will add our locations latitude and longitude.
+                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+
+                // on below line we are adding marker to that position.
+                mMap.addMarker(new MarkerOptions().position(latLng).title(location));
+
+                // below line is to animate camera to that position.
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText)
-            {
+            public boolean onQueryTextChange(String newText) {
                 return false;
             }
+
+
         });
-
+        // at last we calling our map fragment to update.
         Objects.requireNonNull(mapFragment).getMapAsync(this);
-    }
-
-    private void initializeCustomLocations()
-    {
-        customLocations = new ArrayList<>();
-        // Add your custom locations here. Example:
-        customLocations.add(new CustomLocation("Academic Buildings - A - SWCA", new LatLng(32.734666, -97.114125)));
-        customLocations.add(new CustomLocation("Academic Buildings - B - SWCB", new LatLng(32.734707, -97.113682)));
-        customLocations.add(new CustomLocation("Aerodynamics Research Building - ARB", new LatLng(32.727495, -97.107354)));
-        customLocations.add(new CustomLocation("Amphibian and Reptile Diversity Research Center - ARC", new LatLng(32.727804, -97.124741)));
-        customLocations.add(new CustomLocation("Bookstore - BOOK", new LatLng(32.733351, -97.109269)));
-        customLocations.add(new CustomLocation("Business Building - COBA", new LatLng(32.729576, -97.110579)));
-        customLocations.add(new CustomLocation("C.R. Gilstrap Athletic Center - GILS", new LatLng(32.729701, -97.127416)));
-        customLocations.add(new CustomLocation("CAPPA Building - ARCH", new LatLng(32.731265, -97.116128)));
-        customLocations.add(new CustomLocation("CAPPA Community Design Lab - DBI", new LatLng(32.738032, -97.114806)));
-        customLocations.add(new CustomLocation("CAPPA North - CMPC", new LatLng(32.732100, -97.116078)));
-        customLocations.add(new CustomLocation("CAPPA South - A - SHC", new LatLng(32.730420, -97.115884)));
-        customLocations.add(new CustomLocation("CAPPA South - B - SHO", new LatLng(32.730342, -97.115535)));
-        customLocations.add(new CustomLocation("CAPPA South - B - SHO", new LatLng(32.730342, -97.115535)));
-        customLocations.add(new CustomLocation("Carlisle Hall", new LatLng(32.730650, -97.112586)));
-        customLocations.add(new CustomLocation("Carlisle Hall - CARH", new LatLng(32.730650, -97.112586)));
-        customLocations.add(new CustomLocation("Center for Addiction and Recovery Studies - CARS", new LatLng(32.823796, -96.845489)));
-        customLocations.add(new CustomLocation("Center for Entrepreneurship and Technology Development - CEEI", new LatLng(32.733600, -97.107445)));
-        customLocations.add(new CustomLocation("Chemistry & Physics Building - CPB", new LatLng(32.730396, -97.111744)));
-        customLocations.add(new CustomLocation("Civil Engineering Lab Building - CELB", new LatLng(32.727543, -97.125545)));
-        customLocations.add(new CustomLocation("College Hall - CH", new LatLng(32.730801, -97.111507)));
-        customLocations.add(new CustomLocation("College Park Center - CPC", new LatLng(32.730187, -97.108181)));
-        customLocations.add(new CustomLocation("Continuing Ed & Workforce Development - CEWF", new LatLng(32.726832, -97.108455)));
-        customLocations.add(new CustomLocation("DED Technical Training Ctr. - DE", new LatLng(32.726782, -97.107216)));
-        customLocations.add(new CustomLocation("E.H. Hereford University Center - UC", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Earth & Environmental Sciences - EES", new LatLng(32.731329, -97.114177)));
-        customLocations.add(new CustomLocation("Engineering Lab Building - ELAB", new LatLng(32.732326, -97.112670)));
-        customLocations.add(new CustomLocation("Engineering Research Building - ERB", new LatLng(32.733211, -97.112513)));
-        customLocations.add(new CustomLocation("Environmental Health & Safety - EH", new LatLng(32.732313, -97.122161)));
-        customLocations.add(new CustomLocation("Environmental Health & Safety", new LatLng(32.733159, -97.123303)));
-        customLocations.add(new CustomLocation("Finance and Administration Annex", new LatLng(32.736982, -97.109236)));
-        customLocations.add(new CustomLocation("Fine Arts Building - FA", new LatLng(32.730577, -97.115085)));
-        customLocations.add(new CustomLocation("Fort Worth Center - UTASF", new LatLng(32.749654, -97.324825)));
-        customLocations.add(new CustomLocation("General Academic Classroom Building - GACB", new LatLng(32.734244, -97.114176)));
-        customLocations.add(new CustomLocation("Gilstrap Athletic Center - GILS", new LatLng(32.729701, -97.127416)));
-        customLocations.add(new CustomLocation("Hammond Hall - HH", new LatLng(32.729641, -97.112045)));
-        customLocations.add(new CustomLocation("Health Center - HLTH", new LatLng(32.730456, -97.110756)));
-        customLocations.add(new CustomLocation("Library - LIBR", new LatLng(32.729660, -97.112687)));
-        customLocations.add(new CustomLocation("Library Collection Depository & OIT Office Building - LCDO", new LatLng(32.727747, -97.124157)));
-        customLocations.add(new CustomLocation("Life Science Building - LS", new LatLng(32.728641, -97.112895)));
-        customLocations.add(new CustomLocation("Maverick Activities Center - MAC", new LatLng(32.731925, -97.117050)));
-        customLocations.add(new CustomLocation("Maverick Parking Garage - GARA", new LatLng(32.729459, -97.111647)));
-        customLocations.add(new CustomLocation("Maverick Stadium - STAD", new LatLng(32.729209, -97.126382)));
-        customLocations.add(new CustomLocation("Military & Veteran Services - VAC", new LatLng(32.733867, -97.122085)));
-        customLocations.add(new CustomLocation("Nanofab Building - NANO", new LatLng(32.732407, -97.115512)));
-        customLocations.add(new CustomLocation("Nedderman Hall - NH", new LatLng(32.732585, -97.113819)));
-        customLocations.add(new CustomLocation("Parking & Transportation Services - PATS", new LatLng(32.729425, -97.124411)));
-        customLocations.add(new CustomLocation("Parking at UT Arlington - PATS", new LatLng(32.729425, -97.124411)));
-        customLocations.add(new CustomLocation("Physical Education - PE", new LatLng(32.730930, -97.117653)));
-        customLocations.add(new CustomLocation("Pickard Hall - PKH", new LatLng(32.728415, -97.111283)));
-        customLocations.add(new CustomLocation("Preston Hall - PH", new LatLng(32.730905, -97.112856)));
-        customLocations.add(new CustomLocation("Ransom Hall - RH", new LatLng(32.730934, -97.112180)));
-        customLocations.add(new CustomLocation("School of Social Work and College of Nursing and Health Innovation Smart Hospital Building - SWSH", new LatLng(32.727642, -97.111669)));
-        customLocations.add(new CustomLocation("Science & Engineering Innovation & Research Building - SEIR", new LatLng(32.728122, -97.112746)));
-        customLocations.add(new CustomLocation("Science Hall - SH", new LatLng(32.730438, -97.114186)));
-        customLocations.add(new CustomLocation("Studio Arts Center - SAC", new LatLng(32.728687, -97.124942)));
-        customLocations.add(new CustomLocation("Swift Center - SC", new LatLng(32.733882, -97.121148)));
-        customLocations.add(new CustomLocation("Tennis Center - TENN", new LatLng(32.732003, -97.119913)));
-        customLocations.add(new CustomLocation("Texas Hall - TEX", new LatLng(32.729723, -97.115497)));
-        customLocations.add(new CustomLocation("The Commons - COM", new LatLng(32.733095, -97.117113)));
-        customLocations.add(new CustomLocation("Thermal Energy Plant - TEP", new LatLng(32.730510, -97.110214)));
-        customLocations.add(new CustomLocation("Transforming Lives Child Development Center - DAYC", new LatLng(32.734048, -97.123047)));
-        customLocations.add(new CustomLocation("Trimble Hall - TH", new LatLng(32.729887, -97.111534)));
-        customLocations.add(new CustomLocation("University Administration Building - UA", new LatLng(32.729178, -97.115171)));
-        customLocations.add(new CustomLocation("University Hall - UH", new LatLng(32.729055, -97.114052)));
-        customLocations.add(new CustomLocation("University Police Department - UPD", new LatLng(32.733260, -97.105225)));
-        customLocations.add(new CustomLocation("UT Arlington Research Institute - UTARI", new LatLng(32.784965, -97.219874)));
-        customLocations.add(new CustomLocation("W. A. Baker Chemistry Research Building - CRB", new LatLng(32.730380, -97.112816)));
-        customLocations.add(new CustomLocation("Wade Building - WDB", new LatLng(32.734088, -97.106824)));
-        customLocations.add(new CustomLocation("West Hall -", new LatLng(32.733092, -97.118528)));
-        customLocations.add(new CustomLocation("West Mitchell Center - SAB", new LatLng(32.726268, -97.117751)));
-        customLocations.add(new CustomLocation("Wetsel Service Center - WET", new LatLng(32.726656, -97.125937)));
-        customLocations.add(new CustomLocation("Woolf Hall - WH", new LatLng(32.731380, -97.112969)));
-        customLocations.add(new CustomLocation("Accessible Parking", new LatLng(32.733240, -97.118433)));
-        customLocations.add(new CustomLocation("F11 Visitor Parking", new LatLng(32.732373, -97.110681)));
-        customLocations.add(new CustomLocation("Maverick Stadium", new LatLng(32.730690, -97.126391)));
-        customLocations.add(new CustomLocation("Meadow Run General Parking", new LatLng(32.731877, -97.120600)));
-        customLocations.add(new CustomLocation("Park West Parking Garage", new LatLng(32.733520, -97.117231)));
-        customLocations.add(new CustomLocation("Parking and Transportation Parking Lot", new LatLng(32.729220, -97.125163)));
-        customLocations.add(new CustomLocation("Parking Lot 27", new LatLng(32.729851, -97.124376)));
-        customLocations.add(new CustomLocation("Parking Lot 28", new LatLng(32.733560, -97.121970)));
-        customLocations.add(new CustomLocation("Parking Lot 29", new LatLng(32.729840, -97.122640)));
-        customLocations.add(new CustomLocation("Parking Lot 30", new LatLng(32.731190, -97.119580)));
-        customLocations.add(new CustomLocation("Parking Lot 31", new LatLng(32.733060, -97.121570)));
-        customLocations.add(new CustomLocation("Parking Lot 34", new LatLng(32.733393, -97.115836)));
-        customLocations.add(new CustomLocation("Parking Lot 35", new LatLng(32.734090, -97.115440)));
-        customLocations.add(new CustomLocation("Parking Lot 36", new LatLng(32.734500, -97.113150)));
-        customLocations.add(new CustomLocation("Parking Lot 38", new LatLng(32.732599, -97.109571)));
-        customLocations.add(new CustomLocation("Parking Lot 39", new LatLng(32.732563, -97.108970)));
-        customLocations.add(new CustomLocation("Parking Lot 45", new LatLng(32.728538, -97.107521)));
-        customLocations.add(new CustomLocation("Parking Lot 46", new LatLng(32.727256, -97.108047)));
-        customLocations.add(new CustomLocation("Parking Lot 49", new LatLng(32.726060, -97.112840)));
-        customLocations.add(new CustomLocation("Parking Lot 50", new LatLng(32.724600, -97.112380)));
-        customLocations.add(new CustomLocation("Parking Lot 51", new LatLng(32.723220, -97.110490)));
-        customLocations.add(new CustomLocation("Parking Lot 52", new LatLng(32.725710, -97.110490)));
-        customLocations.add(new CustomLocation("Parking Lot 53", new LatLng(32.726960, -97.109130)));
-        customLocations.add(new CustomLocation("Parking Lot 55", new LatLng(32.727990, -97.107350)));
-        customLocations.add(new CustomLocation("Parking Lot 56", new LatLng(32.725030, -97.108280)));
-        customLocations.add(new CustomLocation("Parking Lot F10", new LatLng(32.728772, -97.110418)));
-        customLocations.add(new CustomLocation("Parking Lot F11", new LatLng(32.732698, -97.110381)));
-        customLocations.add(new CustomLocation("Parking Lot F12", new LatLng(32.733000, -97.111480)));
-        customLocations.add(new CustomLocation("Parking Lot F13", new LatLng(32.729914, -97.109190)));
-        customLocations.add(new CustomLocation("Parking Lot F14", new LatLng(32.733326, -97.114120)));
-        customLocations.add(new CustomLocation("Parking Lot F17", new LatLng(32.726270, -97.108220)));
-        customLocations.add(new CustomLocation("Parking Lot F4", new LatLng(32.732470, -97.121880)));
-        customLocations.add(new CustomLocation("Parking Lot F5", new LatLng(32.733990, -97.120350)));
-        customLocations.add(new CustomLocation("Parking Lot F7", new LatLng(32.732140, -97.114990)));
-        customLocations.add(new CustomLocation("Parking Lot F8", new LatLng(32.731060, -97.116820)));
-        customLocations.add(new CustomLocation("Parking Lot F9", new LatLng(32.728740, -97.115680)));
-        customLocations.add(new CustomLocation("Parking Lot GR", new LatLng(32.731470, -97.122510)));
-        customLocations.add(new CustomLocation("Student & Administration Parking Lot", new LatLng(32.726122, -97.118165)));
-        customLocations.add(new CustomLocation("Allan Saxe Softball Field", new LatLng(32.722490, -97.129295)));
-        customLocations.add(new CustomLocation("Architecture Courtyard", new LatLng(32.731265, -97.116128)));
-        customLocations.add(new CustomLocation("Bluebonnet Ballroom", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Carlisle Suite", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Carolyn A Barros Reading Room", new LatLng(32.730801, -97.111507)));
-        customLocations.add(new CustomLocation("Clay Gould Ballpark", new LatLng(32.722201, -97.130803)));
-        customLocations.add(new CustomLocation("College Park Center", new LatLng(32.730187, -97.108181)));
-        customLocations.add(new CustomLocation("Concho Room", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Dan Dipert University Welcome Center", new LatLng(32.731223, -97.107478)));
-        customLocations.add(new CustomLocation("Engineering Mall", new LatLng(32.732175, -97.113283)));
-        customLocations.add(new CustomLocation("Fine Arts Room 148", new LatLng(32.730577, -97.115085)));
-        customLocations.add(new CustomLocation("Guadalupe Room", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Indoor Pool", new LatLng(32.730930, -97.117653)));
-        customLocations.add(new CustomLocation("Irons Recital Hall", new LatLng(32.730577, -97.115085)));
-        customLocations.add(new CustomLocation("Library Atrium", new LatLng(32.729660, -97.112687)));
-        customLocations.add(new CustomLocation("Library Parlor", new LatLng(32.729660, -97.112687)));
-        customLocations.add(new CustomLocation("Lone Star Auditorium", new LatLng(32.731925, -97.117050)));
-        customLocations.add(new CustomLocation("Mainstage Theatre", new LatLng(32.731210, -97.114865)));
-        customLocations.add(new CustomLocation("Maverick Pantry", new LatLng(32.731965, -97.107532)));
-        customLocations.add(new CustomLocation("Neches Room", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Outdoor Pool", new LatLng(32.730930, -97.117653)));
-        customLocations.add(new CustomLocation("Palo Duro Lounge", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Palo Pinto Room", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Pedernales Room", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Planetarium", new LatLng(32.730396, -97.111744)));
-        customLocations.add(new CustomLocation("Rady Room", new LatLng(32.732585, -97.113819)));
-        customLocations.add(new CustomLocation("Red River Room", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Rio Grande Ballroom", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Rosebud Theater", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("San Jacinto Room", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("San Saba Room", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Science and Engineering Library", new LatLng(32.732585, -97.113819)));
-        customLocations.add(new CustomLocation("Sierras Lounge", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("Smart Hospital", new LatLng(32.727642, -97.111669)));
-        customLocations.add(new CustomLocation("Special Collections", new LatLng(32.729660, -97.112687)));
-        customLocations.add(new CustomLocation("Studio Theatre", new LatLng(32.730577, -97.115085)));
-        customLocations.add(new CustomLocation("Texas Hall", new LatLng(32.729723, -97.115497)));
-        customLocations.add(new CustomLocation("The Gallery at UC", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("The Gallery at UTA", new LatLng(32.731457, -97.115053)));
-        customLocations.add(new CustomLocation("The Green at College Park", new LatLng(32.729404, -97.107291)));
-        customLocations.add(new CustomLocation("University Center Mall", new LatLng(32.731544, -97.110941)));
-        customLocations.add(new CustomLocation("West Campus Library", new LatLng(32.731265, -97.116128)));
     }
 
 
     @Override
-    public void onMapReady(@NonNull GoogleMap googleMap)
-    {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
 
         mMap = googleMap;
 
@@ -645,191 +515,258 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
         LatLng parking1 = new LatLng(32.73323979, -97.11843252);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking1)
                 .title("Accessible Parking"));
 
         LatLng parking2 = new LatLng(32.73237338, -97.11068094);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking2)
                 .title("F11 Visitor Parking"));
 
         LatLng parking3 = new LatLng(32.73069, -97.126391);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking3)
                 .title("Maverick Stadium"));
 
         LatLng parking4 = new LatLng(32.731877, -97.12059975);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking4)
                 .title("Meadow Run General Parking"));
 
         LatLng parking5 = new LatLng(32.73352, -97.117231);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking5)
                 .title("Park West Parking Garage"));
 
         LatLng parking6 = new LatLng(32.72922, -97.125163);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking6)
                 .title("Parking and Transportation Parking Lot"));
 
         LatLng parking7 = new LatLng(32.729851, -97.124376);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking7)
-                .title("Parking Lot 27"));
+                .title("Parking Lot 27")
+                .snippet("Faculty Parking"));
 
         LatLng parking8 = new LatLng(32.73356, -97.12197);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking8)
-                .title("Parking Lot 28"));
+                .title("Parking Lot 28")
+                .snippet("General Parking"));
 
         LatLng parking9 = new LatLng(32.72984, -97.12264);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking9)
-                .title("Parking Lot 29"));
+                .title("Parking Lot 29")
+                .snippet("Reduced Rate Parking"));
 
         LatLng parking10 = new LatLng(32.73119, -97.11958);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking10)
-                .title("Parking Lot 30"));
+                .title("Parking Lot 30")
+                .snippet("Student Parking"));
 
         LatLng parking11 = new LatLng(32.73306, -97.12157);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking11)
-                .title("Parking Lot 31"));
+                .title("Parking Lot 31")
+                .snippet("General Parking"));
 
         LatLng parking12 = new LatLng(32.73339322, -97.11583614);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking12)
-                .title("Parking Lot 34 (student)"));
+                .title("Parking Lot 34")
+                .snippet("Student Parking"));
 
         LatLng parking13 = new LatLng(32.73409, -97.11544);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking13)
-                .title("Parking Lot 35"));
+                .title("Parking Lot 35")
+                .snippet("Student Parking"));
 
         LatLng parking14 = new LatLng(32.7345, -97.11315);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking14)
-                .title("Parking Lot 36"));
+                .title("Parking Lot 36")
+                .snippet("Student Upgrade Parking"));
 
         LatLng parking15 = new LatLng(32.732599, -97.109571);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking15)
-                .title("Parking Lot 38"));
+                .title("Parking Lot 38")
+                .snippet("Faculty Parking"));
 
         LatLng parking16 = new LatLng(32.732563, -97.10897);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking16)
                 .title("Parking Lot 39"));
 
         LatLng parking17 = new LatLng(32.72853761, -97.1075213);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking17)
-                .title("Parking Lot 45"));
+                .title("Parking Lot 45")
+                .snippet("Student Parking"));
 
         LatLng parking18 = new LatLng(32.727256, -97.108047);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking18)
                 .title("Parking Lot 46"));
 
         LatLng parking19 = new LatLng(32.72606, -97.11284);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking19)
-                .title("Parking Lot 49"));
+                .title("Parking Lot 49")
+                .snippet("Student Parking"));
 
         LatLng parking20 = new LatLng(32.7246, -97.11238);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking20)
-                .title("Parking Lot 50"));
+                .title("Parking Lot 50")
+                .snippet("Student Parking"));
 
         LatLng parking21 = new LatLng(32.72322, -97.11049);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking21)
-                .title("Parking Lot 51"));
+                .title("Parking Lot 51")
+                .snippet("Student Parking"));
 
         LatLng parking22 = new LatLng(32.72571, -97.11049);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking22)
-                .title("Parking Lot 52"));
+                .title("Parking Lot 52")
+                .snippet("Student Parking"));
 
         LatLng parking23 = new LatLng(32.72696, -97.10913);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking23)
-                .title("Parking Lot 53"));
+                .title("Parking Lot 53")
+                .snippet("Student Parking"));
 
         LatLng parking24 = new LatLng(32.72799, -97.10735);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking24)
-                .title("Parking Lot 55"));
+                .title("Parking Lot 55")
+                .snippet("Student Parking"));
 
         LatLng parking25 = new LatLng(32.72503, -97.10828);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking25)
-                .title("Parking Lot 56"));
+                .title("Parking Lot 56")
+                .snippet("Student Parking\nGeneral Parking"));
 
         LatLng parking26 = new LatLng(32.728772, -97.110418);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking26)
-                .title("Parking Lot F10"));
+                .title("Parking Lot F10")
+                .snippet("Faculty Parking"));
 
         LatLng parking27 = new LatLng(32.73269829, -97.11038053);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking27)
-                .title("Parking Lot F11"));
+                .title("Parking Lot F11")
+                .snippet("Faculty Parking"));
 
         LatLng parking28 = new LatLng(32.733, -97.11148);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking28)
-                .title("Parking Lot F12"));
+                .title("Parking Lot F12")
+                .snippet("Faculty Parking"));
 
         LatLng parking29 = new LatLng(32.729914, -97.10919);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking29)
-                .title("Parking Lot F13"));
+                .title("Parking Lot F13")
+                .snippet("Faculty Parking"));
 
         LatLng parking30 = new LatLng(32.733326, -97.11412);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking30)
-                .title("Parking Lot F14"));
+                .title("Parking Lot F14")
+                .snippet("Faculty Parking"));
 
         LatLng parking31 = new LatLng(32.72627, -97.10822);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking31)
-                .title("Parking Lot F17"));
+                .title("Parking Lot F17")
+                .snippet("Faculty Parking"));
 
         LatLng parking32 = new LatLng(32.73247, -97.12188);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking32)
-                .title("Parking Lot F4"));
+                .title("Parking Lot F4")
+                .snippet("Faculty Parking"));
 
         LatLng parking33 = new LatLng(32.73399, -97.12035);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking33)
-                .title("Parking Lot F5"));
+                .title("Parking Lot F5")
+                .snippet("Faculty Parking"));
 
         LatLng parking34 = new LatLng(32.73214, -97.11499);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking34)
-                .title("Parking Lot F7"));
+                .title("Parking Lot F7")
+                .snippet("Faculty Parking"));
 
         LatLng parking35 = new LatLng(32.73106, -97.11682);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking35)
-                .title("Parking Lot F8"));
+                .title("Parking Lot F8")
+                .snippet("Faculty Parking"));
 
         LatLng parking36 = new LatLng(32.72874, -97.11568);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking36)
-                .title("Parking Lot F9"));
+                .title("Parking Lot F9")
+                .snippet("Faculty Parking"));
 
         LatLng parking37 = new LatLng(32.73147, -97.12251);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking37)
-                .title("Parking Lot GR"));
+                .title("Parking Lot GR")
+                .snippet("Reduced Rate Parking"));
 
         LatLng parking38 = new LatLng(32.726122, -97.118165);
         mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .position(parking38)
                 .title("Student & Administration Parking Lot"));
 
@@ -1083,23 +1020,4 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 return true;
             }
         });
-    }
-    private class CustomLocation
-    {
-        private String name;
-        private LatLng latLng;
-
-        public CustomLocation(String name, LatLng latLng) {
-            this.name = name;
-            this.latLng = latLng;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public LatLng getLatLng() {
-            return latLng;
-        }
-    }
-}
+}}

@@ -1,13 +1,5 @@
 [
   {
-    "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
     "featureType": "administrative",
     "elementType": "labels.text",
     "stylers": [
@@ -39,10 +31,13 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#ff9614"
+        "color": "#dc7850"
       },
       {
-        "lightness": -15
+        "saturation": 100
+      },
+      {
+        "visibility": "on"
       }
     ]
   },
@@ -56,10 +51,28 @@
     ]
   },
   {
+    "featureType": "landscape.man_made",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#000000"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.man_made",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
     "featureType": "poi",
     "stylers": [
       {
-        "visibility": "on"
+        "visibility": "simplified"
       }
     ]
   },
@@ -69,9 +82,6 @@
     "stylers": [
       {
         "color": "#0064ff"
-      },
-      {
-        "visibility": "off"
       }
     ]
   },
@@ -90,6 +100,38 @@
     "stylers": [
       {
         "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.medical",
+    "stylers": [
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.place_of_worship",
+    "stylers": [
+      {
+        "visibility": "on"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.school",
+    "stylers": [
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.sports_complex",
+    "stylers": [
+      {
+        "visibility": "on"
       }
     ]
   },
