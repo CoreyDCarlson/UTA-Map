@@ -14,9 +14,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Generate a random time between 3500 and 6500 milliseconds
-        int minTime = 3000;
-        int maxTime = 6000;
+        // Generate a random time between 1500 and 3000 milliseconds
+        int minTime = 1000;
+        int maxTime = 2500;
         int randomTime = new Random().nextInt(maxTime - minTime + 1) + minTime;
 
         new Handler().postDelayed(new Runnable() {

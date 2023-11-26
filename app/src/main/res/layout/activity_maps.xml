@@ -26,5 +26,13 @@
         app:iconifiedByDefault="false"
         app:queryHint="Search Here" />
 
+    <ListView
+        android:id="@+id/suggestionsListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#BFBFBF"
+        android:layout_below="@+id/idSearchView"
+        android:visibility="gone" /> <!-- Initially set to gone -->
+
 
 </RelativeLayout>
